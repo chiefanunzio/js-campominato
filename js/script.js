@@ -18,4 +18,31 @@
 // Proviamo sempre prima con dei console.log() per capire se stiamo ricevendo i dati giusti.
 // Proviamo prima con pochi numeri, inserire 86 numeri ogni volta potrebbe essere un po’ scocciante :occhiolino:
 // Le validazioni e i controlli possiamo farli anche in un secondo momento.
-// Ricordatevi che se non sappiamo quante volte dobbiamo fare una cosa ci serve… :linguaccia: (modificato)
+// Ricordatevi che se non sappiamo quante volte dobbiamo fare una cosa ci serve… :linguaccia: (modificato)\
+
+var play = document.getElementById('start-app');
+play.addEventListener('click', function() {
+
+  function getRandom(min, max) {
+    var rndMin = min;
+    var rndMax = max - min + 1;
+    var rndValue = Math.floor(Math.random() * rndMax) + rndMin;
+    return rndValue;
+  }
+
+  var pcNum = []
+  for (var i = 0; i < 16; i++) {
+
+    var num = getRandom(1, 100);
+    if (!pcNum.includes(num)) {
+
+      pcNum.push(num);
+
+    } else {
+      i--;
+    }
+  }
+
+
+
+})
