@@ -20,53 +20,73 @@
 // Le validazioni e i controlli possiamo farli anche in un secondo momento.
 // Ricordatevi che se non sappiamo quante volte dobbiamo fare una cosa ci serve… :linguaccia: (modificato)\
 
+//funzione per generare numeri random
+function getRandom(min, max) {
+  var rndMin = min;
+  var rndMax = max - min + 1;
+  var rndValue = Math.floor(Math.random() * rndMax) + rndMin;
+  return rndValue;
+}
+
+// funzione riempio l'arrey con 16 numeri random
+function pcBombs(boxBombs, bomb) {
+  var pcNum = boxBombs;
+  var num = bomb;
+
+  var pcNum = []
+  for (var i = 0; i < 16; i++) {
+
+    var num = getRandom(1, 100);
+    if (!pcNum.includes(num)) {
+
+      pcNum.push(num);
+
+    } else {
+      i--;
+    }
+    console.log(pcNum);
+  }
+
+  return pcNum;
+
+}
+
+function userPlay(boxUser, numUser) {
+
+  var pcNum = pcBombs();
+  
+  var boxUser = [];
+  for (var i = 0; i < 5; i++) {
+    var numUser = parseInt(prompt('prova con un numero'));
+
+    if (pcNum.includes(numUser)) {
+      alert('vai a fare 5 minuti di vergogna');
+      break;
+
+    } else if (!boxUser.includes(numUser)) {
+      alert('stai andando bene');
+      boxUser.push(numUser);
+
+    } else if (boxUser.includes(numUser)) {
+      alert('vuoi rubare a un ladro ?');
+      i--;
+    }
+
+
+
+
+  }
+
+  
+  
+
+};
+var winner = document.getElementById('winner');
+
 var play = document.getElementById('start-app');
-play.addEventListener('click', function() {
+play.addEventListener('click', function () {
 
-      function getRandom(min, max) {
-        var rndMin = min;
-        var rndMax = max - min + 1;
-        var rndValue = Math.floor(Math.random() * rndMax) + rndMin;
-        return rndValue;
-      }
+  pcBombs();
+  userPlay();
 
-      var pcNum = []
-      for (var i = 0; i < 16; i++) {
-
-        var num = getRandom(1, 100);
-        if (!pcNum.includes(num)) {
-
-          pcNum.push(num);
-
-        } else {
-          i--;
-        }
-        console.log(pcNum);
-      }
-
-      // riempio l'arrey con 16 numeri random
-      var boxUser = [];
-      for (var i = 0; i < 2; i++) {
-        var numUser = parseInt(prompt('prova con un numero'));
-
-        if (pcNum.includes(numUser)){
-          alert('vai a fare 5 minuti di vergogna');
-          break;
-        }
-
-        else if(!boxUser.includes(numUser)){
-          boxUser.push(numUser);
-
-        }
-
-        else if(boxUser.includes(numUser)){
-          alert('hai usato giá questo numero, ritenta');
-          i--;
-        }
-      }
-
-      var winner = document.getElementById('winner').innerHTML = ('hai vinto');
-
-
-
-    });
+});
