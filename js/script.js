@@ -23,26 +23,50 @@
 var play = document.getElementById('start-app');
 play.addEventListener('click', function() {
 
-  function getRandom(min, max) {
-    var rndMin = min;
-    var rndMax = max - min + 1;
-    var rndValue = Math.floor(Math.random() * rndMax) + rndMin;
-    return rndValue;
-  }
+      function getRandom(min, max) {
+        var rndMin = min;
+        var rndMax = max - min + 1;
+        var rndValue = Math.floor(Math.random() * rndMax) + rndMin;
+        return rndValue;
+      }
 
-  var pcNum = []
-  for (var i = 0; i < 16; i++) {
+      var pcNum = []
+      for (var i = 0; i < 16; i++) {
 
-    var num = getRandom(1, 100);
-    if (!pcNum.includes(num)) {
+        var num = getRandom(1, 100);
+        if (!pcNum.includes(num)) {
 
-      pcNum.push(num);
+          pcNum.push(num);
 
-    } else {
-      i--;
-    }
-  }
+        } else {
+          i--;
+        }
+        console.log(pcNum);
+      }
+
+      // riempio l'arrey con 16 numeri random
+      var boxUser = [];
+      for (var i = 0; i < 2; i++) {
+        var numUser = parseInt(prompt('prova con un numero'));
+
+        if (pcNum.includes(numUser)){
+          alert('vai a fare 5 minuti di vergogna');
+          break;
+        }
+
+        else if(!boxUser.includes(numUser)){
+          boxUser.push(numUser);
+
+        }
+
+        else if(boxUser.includes(numUser)){
+          alert('hai usato giá questo numero, ritenta');
+          i--;
+        }
+      }
+
+      var winner = document.getElementById('winner');
+      winner.innerHTML = ('hai vinto');
 
 
-
-})
+    });
