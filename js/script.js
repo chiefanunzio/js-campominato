@@ -65,8 +65,8 @@ play.addEventListener('click', function() {
         }
       }
 
-      var winner = document.getElementById('winner');
-      winner.innerHTML = ('hai vinto');
+      var winner = document.getElementById('winner').innerHTML = ('hai vinto');
+
 
 
     });
