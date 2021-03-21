@@ -44,11 +44,11 @@ function pcBombs(boxBombs, bomb) {
     } else {
       i--;
     }
-    console.log(pcNum);
   }
-
+  
+  console.log(pcNum);
   return pcNum;
-
+  
 }
 
 function userPlay(boxUser, numUser) {
