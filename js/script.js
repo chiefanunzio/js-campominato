@@ -21,11 +21,8 @@
 // Ricordatevi che se non sappiamo quante volte dobbiamo fare una cosa ci serve… :linguaccia: (modificato)\
 
 //funzione per generare numeri random
-function getRandom(min, max) {
-  var rndMin = min;
-  var rndMax = max - min + 1;
-  var rndValue = Math.floor(Math.random() * rndMax) + rndMin;
-  return rndValue;
+function getrandom(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 // funzione riempio l'arrey con 16 numeri random
